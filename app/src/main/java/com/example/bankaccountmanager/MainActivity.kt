@@ -27,15 +27,21 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView.setupWithNavController(navController)
 
-        appBarConfiguration = AppBarConfiguration(navController.graph,drawerLayout)
+//        appBarConfiguration = AppBarConfiguration(navController.graph,drawerLayout)
+        appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.profileFragment, R.id.createAccountFragment,
+            R.id.showAccountFragment, R.id.selectAccountFragment,
+            R.id.deleteAccount
+        )
+            ,drawerLayout)
         setupActionBarWithNavController(navController,appBarConfiguration)
         navigationView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.DeleteAccount ->{
+                R.id.deleteAccount ->{
                     Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
                 }
             }
-
+            NavigationUI.onNavDestinationSelected(it, navController)
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }

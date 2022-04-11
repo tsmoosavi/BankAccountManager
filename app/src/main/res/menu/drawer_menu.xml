@@ -15,6 +15,6 @@
         android:id="@+id/selectAccountFragment"
         />
     <item android:title="Delete Account"
-        android:id="@+id/DeleteAccount"
+        android:id="@+id/deleteAccount"
         />
 </menu>
