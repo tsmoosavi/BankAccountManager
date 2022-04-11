@@ -33,5 +33,9 @@
         android:id="@+id/showProfileInfoFragment"
         android:name="com.example.bankaccountmanager.ShowProfileInfoFragment"
         android:label="fragment_show_profile_info"
-        tools:layout="@layout/fragment_show_profile_info" />
+        tools:layout="@layout/fragment_show_profile_info" >
+        <action
+            android:id="@+id/action_showProfileInfoFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>
