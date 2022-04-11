@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccountFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CreateAccountFragment"
+    android:background="@drawable/pink_outline">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="10dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#78DDD3"
+            android:padding="5dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:cardUseCompatPadding="true">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/bankIntro"
+                android:gravity="center"
+                android:textSize="20sp"
+         />
+        </androidx.cardview.widget.CardView>
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/accountNumberTxv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نوع حساب:"
+            android:layout_margin="10dp"
+            style="@style/txvStyle"
+            android:background="@drawable/pink_outline"/>
+
+        <EditText
+            android:id="@+id/accountType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_outline"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/cardNumber"
+            style="@style/txvStyle"
+            android:background="@drawable/pink_outline" />
+        <EditText
+            android:id="@+id/cardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:background="@drawable/blue_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/balance"
+            style="@style/txvStyle"
+            android:background="@drawable/pink_outline"/>
+        <EditText
+            android:id="@+id/balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:background="@drawable/blue_outline"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/EditButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="register"
+            app:cornerRadius="10dp"/>
+
+
+    </LinearLayout>
+</ScrollView>
