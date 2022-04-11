@@ -9,7 +9,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.bankaccountmanager.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_showProfileInfoFragment"
+            app:destination="@id/showProfileInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
         android:name="com.example.bankaccountmanager.CreateAccountFragment"
@@ -25,4 +29,9 @@
         android:name="com.example.bankaccountmanager.SelectAccountFragment"
         android:label="fragment_select_account"
         tools:layout="@layout/fragment_select_account" />
+    <fragment
+        android:id="@+id/showProfileInfoFragment"
+        android:name="com.example.bankaccountmanager.ShowProfileInfoFragment"
+        android:label="fragment_show_profile_info"
+        tools:layout="@layout/fragment_show_profile_info" />
 </navigation>

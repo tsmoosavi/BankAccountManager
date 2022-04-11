@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.bankaccountmanager.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -31,6 +32,7 @@ class ProfileFragment : Fragment() {
         binding.register.setOnClickListener{
             if (isfielsFull()){
                 saveInfo()
+                findNavController().navigate(R.id.action_profileFragment_to_showProfileInfoFragment)
             }
         }
     }
@@ -69,6 +71,10 @@ class ProfileFragment : Fragment() {
         }
         if(binding.phone.text.isNullOrBlank()){
             binding.phone.error = "این فیلد را پر کنید."
+            return false
+        }
+        if (binding.phone.text.toString().length != 11) {
+            binding.phone.error = "شماره تلفن باید 11 رقم باشد."
             return false
         }
         if(binding.postalCode.text.isNullOrBlank()){
