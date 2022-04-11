@@ -2,14 +2,14 @@ package com.example.bankaccountmanager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
+import com.example.bankaccountmanager.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +29,18 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph,drawerLayout)
         setupActionBarWithNavController(navController,appBarConfiguration)
+        navigationView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.DeleteAccount ->{
+                    Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         navController = findNavController(R.id.firstFragment)
