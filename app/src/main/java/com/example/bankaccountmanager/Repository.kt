@@ -10,4 +10,7 @@ object Repository {
         db = BankDatabase.getAppDataBase(context)
         bankDao =db?.bankAccountDao()
     }
+    fun getAccounts():List<BankAccount>{
+        return db!!.bankAccountDao().getAll()
+    }
 }
