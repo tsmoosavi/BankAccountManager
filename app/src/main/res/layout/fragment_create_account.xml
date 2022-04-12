@@ -39,6 +39,12 @@
             style="@style/txvStyle"
             android:background="@drawable/pink_outline"/>
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_outline"/>
+
         <EditText
             android:id="@+id/accountType"
             android:layout_width="match_parent"

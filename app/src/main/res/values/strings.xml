@@ -15,4 +15,9 @@
     <string name="bankIntro">اطلاعات حساب بانکی خود را وارد کنید:</string>
     <string name="cardNumber">شماره کارت:</string>
     <string name="balance">موجودی حساب:</string>
+    <string-array name="accountType">
+        <item>سپرده کوتاه مدت</item>
+        <item>سپرده بلند مدت</item>
+        <item>قرض الحسنه جاری</item>
+    </string-array>
 </resources>
