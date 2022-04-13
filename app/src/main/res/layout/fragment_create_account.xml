@@ -76,7 +76,7 @@
             android:background="@drawable/blue_outline"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/EditButton"
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="register"

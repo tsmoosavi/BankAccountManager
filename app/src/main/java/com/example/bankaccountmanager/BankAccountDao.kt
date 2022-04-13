@@ -15,8 +15,10 @@ interface BankAccountDao {
     fun insertAll(vararg bankAccountInfo: BankAccount)
 
     @Insert
-    fun addAccount(vararg bankAccount: BankAccount)
+    fun addAccount( bankAccount: BankAccount)
 
-    @Delete
-    fun delete(bankAccountInfo: BankAccount )
+//    @Delete
+//    fun delete(bankAccountInfo: BankAccount )
+      @Query("DELETE FROM BankAccount")
+       fun delete()
 }

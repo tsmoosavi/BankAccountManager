@@ -8,11 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bankaccountmanager.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
+    val vm: CreateAccountVM by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,6 +34,7 @@ class ProfileFragment : Fragment() {
         binding.register.setOnClickListener{
             if (isfielsFull()){
                 saveInfo()
+                Toast.makeText(context, vm.x, Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_profileFragment_to_showProfileInfoFragment)
             }
         }
