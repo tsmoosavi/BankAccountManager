@@ -5,12 +5,15 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 
 class BankViewModel(app: Application):AndroidViewModel(app) {
-    lateinit var bankAccountList: List<BankAccount>
+   var bankAccountList: MutableLiveData<List<BankAccount>>
+    var ListSize = MutableLiveData<String>("")
     var bankAccountInfo = MutableLiveData<BankAccount>()
     init {
         Repository.initDB(app.applicationContext)
-        bankAccountList = Repository.getAccounts()
-        bankAccountInfo.value = bankAccountList[0]
+        bankAccountList = Repository.getAccounts() as MutableLiveData<List<BankAccount>>
+        bankAccountInfo.value = bankAccountList.value?.get(0)
+
 
     }
 }
+

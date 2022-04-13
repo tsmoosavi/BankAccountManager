@@ -1,5 +1,7 @@
 package com.example.bankaccountmanager
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 
 @Dao
@@ -8,11 +10,14 @@ interface BankAccountDao {
     fun getBankAccountInfo(userCardNumber:Int): BankAccount
 
     @Query("SELECT * FROM BankAccount")
-    fun getAll():List<BankAccount>
+    fun getAll(): LiveData<List<BankAccount>>
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg bankAccountInfo: BankAccount)
+
+    @Query("SELECT  count(number) FROM BankAccount")
+    fun getItemsNumber(): LiveData<Int>
 
     @Insert
     fun addAccount( bankAccount: BankAccount)

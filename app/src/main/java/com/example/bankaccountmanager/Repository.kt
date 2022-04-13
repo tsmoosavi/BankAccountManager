@@ -1,6 +1,8 @@
 package com.example.bankaccountmanager
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 object Repository {
     var db : BankDatabase? = null
@@ -10,7 +12,7 @@ object Repository {
         db = BankDatabase.getAppDataBase(context)
         bankDao =db?.bankAccountDao()
     }
-    fun getAccounts():List<BankAccount>{
+    fun getAccounts(): LiveData<List<BankAccount>> {
         return db!!.bankAccountDao().getAll()
     }
     fun addAccount(bA:BankAccount){
@@ -19,7 +21,10 @@ object Repository {
 //    fun del(){
 //        db!!.bankAccountDao().delete()
 //    }
-    fun getList(): List<BankAccount>{
+    fun getSize():LiveData<Int>{
+       return db!!.bankAccountDao().getItemsNumber()
+    }
+    fun getList(): LiveData<List<BankAccount>> {
    return db!!.bankAccountDao().getAll()
     }
 }
