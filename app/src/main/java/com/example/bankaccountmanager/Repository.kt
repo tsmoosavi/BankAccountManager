@@ -12,19 +12,16 @@ object Repository {
         db = BankDatabase.getAppDataBase(context)
         bankDao =db?.bankAccountDao()
     }
-    fun getAccounts(): LiveData<List<BankAccount>> {
+    fun getAccounts():MutableLiveData<List<BankAccount>> {
         return db!!.bankAccountDao().getAll()
     }
     fun addAccount(bA:BankAccount){
         db!!.bankAccountDao().addAccount(bA)
     }
-//    fun del(){
-//        db!!.bankAccountDao().delete()
-//    }
-    fun getSize():LiveData<Int>{
+    fun getListSize():LiveData<Int>{
        return db!!.bankAccountDao().getItemsNumber()
     }
-    fun getList(): LiveData<List<BankAccount>> {
-   return db!!.bankAccountDao().getAll()
+    fun delete(){
+        db!!.bankAccountDao().delete()
     }
 }
