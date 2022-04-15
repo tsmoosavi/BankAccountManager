@@ -44,22 +44,7 @@ class MainActivity : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.deleteAccount ->{
-
-                   fun deleteAccounts(activity: Activity) {
-                        val builder: AlertDialog.Builder = activity.let {
-                            AlertDialog.Builder(it)
-                        }
-                        builder
-                            .setMessage("Are you sure about delete accounts?")
-                            .setTitle("DELETE ?")
-                            .setPositiveButton("Yes", DialogInterface.OnClickListener{ dialog, id->
-                                Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
-                                vm.delete()
-                            })
-                            .setNegativeButton("No",DialogInterface.OnClickListener{ dialog,id-> })
-                            .setCancelable(false)
-                            .show()
-                    }
+                    deleteAccounts(this)
                 }
             }
             NavigationUI.onNavDestinationSelected(it, navController)
@@ -73,5 +58,20 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.firstFragment)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+    fun deleteAccounts(activity: Activity) {
+        val builder: AlertDialog.Builder = activity.let {
+            AlertDialog.Builder(it)
+        }
+        builder
+            .setMessage("Are you sure about delete accounts?")
+            .setTitle("DELETE ?")
+            .setPositiveButton("Yes", DialogInterface.OnClickListener{ dialog, id->
+                Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
+                vm.delete()
+            })
+            .setNegativeButton("No",DialogInterface.OnClickListener{ dialog,id-> })
+            .setCancelable(false)
+            .show()
     }
 }

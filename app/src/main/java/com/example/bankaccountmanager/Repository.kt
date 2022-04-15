@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-object Repository {
+object Repository { //class
     var db : BankDatabase? = null
     var bankDao: BankAccountDao? = null
 
