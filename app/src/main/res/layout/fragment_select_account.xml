@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectAccountFragment">
+    tools:context=".ShowAccountFragment"
+    android:background="@drawable/blue_outline">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/selectedAccount"
+            android:textColor="@color/red"
+            android:textSize="30sp"
+            android:background="@drawable/blue_outline"
+            />
+        <TextView
+            android:id="@+id/accountNumberTxv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نوع حساب بانکی:"
+            android:layout_margin="10dp"
+            android:background="@drawable/pink_outline"
+            style="@style/txvStyle"/>
+        <TextView
+            android:id="@+id/selectedAccountType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/cardNumber"
+            android:background="@drawable/pink_outline"
+            style="@style/txvStyle"/>
+        <TextView
+            android:id="@+id/selectedCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="موجودی حساب:"
+            android:background="@drawable/pink_outline"
+            style="@style/txvStyle"/>
+        <TextView
+            android:id="@+id/selectedBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_outline"/>
 
-</FrameLayout>
+
+
+    </LinearLayout>
+</ScrollView>

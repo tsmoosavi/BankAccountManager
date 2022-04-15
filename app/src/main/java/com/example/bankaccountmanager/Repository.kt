@@ -12,7 +12,7 @@ object Repository {
         db = BankDatabase.getAppDataBase(context)
         bankDao =db?.bankAccountDao()
     }
-    fun getAccounts():MutableLiveData<List<BankAccount>> {
+    fun getAccounts():LiveData<List<BankAccount>> {
         return db!!.bankAccountDao().getAll()
     }
     fun addAccount(bA:BankAccount){

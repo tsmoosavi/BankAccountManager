@@ -57,7 +57,6 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
     private fun savaData() {
         accountType = binding.spinner.selectedItem.toString()
-//        Toast.makeText(context, vm.x, Toast.LENGTH_SHORT).show()
         cardNumber = binding.cardNumber.text.toString().toInt()
         balance = binding.balance.text.toString().toDouble()
     }

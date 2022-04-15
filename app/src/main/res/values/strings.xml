@@ -18,6 +18,7 @@
     <string name="yourBankInfo">اطلاعات حساب بانکی شما</string>
     <string name="next">next</string>
     <string name="back">back</string>
+    <string name="selectedAccount">اطلاعات حساب بانکی منتخب:</string>
     <string-array name="accountType">
         <item>سپرده کوتاه مدت</item>
         <item>سپرده بلند مدت</item>

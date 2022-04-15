@@ -12,6 +12,8 @@ class CreateAccountVM(app: Application): AndroidViewModel(app) {
 //    var accountType = ""
 //    var cardNumber = 0
 //    var balance = 0.0
+    lateinit var x: LiveData<Int>
+
 
     init {
         Repository.initDB(app.applicationContext)
@@ -22,10 +24,5 @@ class CreateAccountVM(app: Application): AndroidViewModel(app) {
     fun getList(){
         Repository.getAccounts()
     }
-    fun getSize():LiveData<Int>{
-        return Repository.getAccounts() as MutableLiveData<Int>
 
-    }
-    var x = MutableLiveData<String> (Repository.getAccounts().toString())
-//     var x = MutableLiveData<String> (Repository.getList().value?.size.toString()).toString())
 }

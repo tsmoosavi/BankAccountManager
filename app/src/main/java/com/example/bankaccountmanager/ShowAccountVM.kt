@@ -10,7 +10,7 @@ class ShowAccountVM (app: Application): AndroidViewModel(app){
     init {
         Repository.initDB(app.applicationContext)
     }
-    var accountList =(Repository.getAccounts()) as MutableLiveData<List<BankAccount>>
+    var accountList =(Repository.getAccounts())
 
     val bankAccountLiveData = MutableLiveData<BankAccount>()
     var ListSize =(Repository.getListSize())

@@ -10,10 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.example.bankaccountmanager.databinding.FragmentProfileBinding
-import java.util.*
 
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
@@ -34,19 +32,12 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showInfo()
-        //        val xObserver = Observer<String> {  size->
-//           xSize = size
-//        }
-//        var xObserver = Observer<String>{ size->
-//
-//        }
-        var xSize = MutableLiveData<String>("")
-        vm.x.observe(requireActivity()) { xSize = vm.x }
+
         binding.register.setOnClickListener{
 
-            if (isfielsFull()){
+            if (isfieldsFull()){
                 saveInfo()
-                Toast.makeText(context, vm.x.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"مشخصات شما ثبت شد.", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_profileFragment_to_showProfileInfoFragment)
             }
         }
@@ -76,7 +67,7 @@ class ProfileFragment : Fragment() {
 
     }
 
-    fun isfielsFull():Boolean{
+    fun isfieldsFull():Boolean{
         if (  binding.fullName.text.isNullOrBlank()){
             binding.fullName.error = "این فیلد را پر کنید."
             return false
