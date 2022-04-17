@@ -3,34 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@drawable/ic_launcher_background"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
+    android:paddingLeft="10dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
+    android:background="#F66294"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="113dp"
+        android:layout_height="102dp"
         android:contentDescription="nav_header_desc"
         android:paddingTop="16dp"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/account" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:paddingTop="16dp"
-        android:text="nav_header_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:text="مدیریت حساب های بانکی"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/titleOfHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="nav_header_subtitle" />
 
 </LinearLayout>

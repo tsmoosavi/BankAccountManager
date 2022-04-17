@@ -11,7 +11,7 @@ import com.example.bankaccountmanager.database.Repository
 
 
 class CreateAccountVM(app: Application) : AndroidViewModel(app) {
-    var userNumberOfAccounts = 0
+     var userNumberOfAccounts =0
     var countOfAccounts: LiveData<Int>
     var registerButtonEnable = MutableLiveData<Boolean>(true)
 

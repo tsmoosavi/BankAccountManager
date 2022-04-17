@@ -37,7 +37,7 @@ class ProfileFragment : Fragment() {
         binding.register.setOnClickListener{
 
             if (isFieldsFull()){
-//                vm.userNumberOfAccounts = binding.numberOfBankAccounts.text.toString().toInt()
+                vm.userNumberOfAccounts = binding.numberOfBankAccounts.text.toString().toInt()
                 saveInfo()
                 Toast.makeText(context,"مشخصات شما ثبت شد.", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_profileFragment_to_showProfileInfoFragment)
