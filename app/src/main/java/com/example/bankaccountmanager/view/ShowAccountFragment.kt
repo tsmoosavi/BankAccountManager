@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bankaccountmanager.R
+import androidx.fragment.app.viewModels
+import com.example.bankaccountmanager.VM.ShowAccountVM
+import com.example.bankaccountmanager.databinding.FragmentShowAccountBinding
 
 class ShowAccountFragment : Fragment() {
-
-
+    lateinit var binding: FragmentShowAccountBinding
+    val vm : ShowAccountVM by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -18,9 +20,50 @@ class ShowAccountFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_show_account, container, false)
+        binding = FragmentShowAccountBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+            initView()
+    }
+    private fun initView() {
+       vm.nextEnableLD.observe(viewLifecycleOwner){enable ->
+            binding.nextBtn.isEnabled = enable
+       }
+        vm.backEnableLD.observe(viewLifecycleOwner){enable ->
+            binding.backBtn.isEnabled = enable
+        }
+        vm.numberLiveData.observe(viewLifecycleOwner){number ->
+            binding.number.text = number.toString()
+        }
+        vm.bALD.observe(viewLifecycleOwner){account ->
+            binding.accountType.text = account.accountType
+            binding.showCardNumber.text = account.cardNumber.toString()
+            binding.showBalance.text = account.balance.toString()
+        }
+         binding.nextBtn.setOnClickListener{
+             vm.next()
+         }
+        binding.backBtn.setOnClickListener{
+            vm.back()
+        }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }

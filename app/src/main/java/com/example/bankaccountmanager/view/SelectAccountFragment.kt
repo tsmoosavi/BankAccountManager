@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
-import com.example.bankaccountmanager.BankDatabase
-import com.example.bankaccountmanager.R
-import com.example.bankaccountmanager.VM.ShowAccountVM
-import com.example.bankaccountmanager.database.BankAccount
+import androidx.fragment.app.viewModels
+import com.example.bankaccountmanager.VM.SelectVM
 import com.example.bankaccountmanager.databinding.FragmentSelectAccountBinding
 
 class SelectAccountFragment : Fragment() {
     lateinit var binding: FragmentSelectAccountBinding
-    val vm : ShowAccountVM by activityViewModels()
+    val vm : SelectVM by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
