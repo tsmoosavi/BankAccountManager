@@ -1,8 +1,10 @@
-package com.example.bankaccountmanager
+package com.example.bankaccountmanager.VM
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.bankaccountmanager.database.BankAccount
+import com.example.bankaccountmanager.database.Repository
 
 class ShowAccountVM (app: Application): AndroidViewModel(app){
 
@@ -10,7 +12,6 @@ class ShowAccountVM (app: Application): AndroidViewModel(app){
     init {
         Repository.initDB(app.applicationContext)
     }
-    var accountList =(Repository.getAccounts())
 
     val bankAccountLiveData = MutableLiveData<BankAccount>()
     var ListSize =(Repository.getListSize())

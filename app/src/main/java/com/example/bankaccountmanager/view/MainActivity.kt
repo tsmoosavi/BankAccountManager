@@ -1,4 +1,4 @@
-package com.example.bankaccountmanager
+package com.example.bankaccountmanager.view
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -10,15 +10,14 @@ import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
-import com.example.bankaccountmanager.databinding.ActivityMainBinding
+import com.example.bankaccountmanager.R
+import com.example.bankaccountmanager.VM.MainVM
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.BaseTransientBottomBar
 
 class MainActivity : AppCompatActivity() {
-    val vm:MainVM by viewModels()
+    val vm: MainVM by viewModels()
     private lateinit var navController : NavController
     private lateinit var drawerLayout : DrawerLayout
     private lateinit var appBarConfiguration : AppBarConfiguration

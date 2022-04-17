@@ -1,4 +1,4 @@
-package com.example.bankaccountmanager
+package com.example.bankaccountmanager.view
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,8 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
+import com.example.bankaccountmanager.R
+import com.example.bankaccountmanager.VM.CreateAccountVM
 import com.example.bankaccountmanager.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -35,7 +36,7 @@ class ProfileFragment : Fragment() {
 
         binding.register.setOnClickListener{
 
-            if (isfieldsFull()){
+            if (isFieldsFull()){
                 saveInfo()
                 Toast.makeText(context,"مشخصات شما ثبت شد.", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_profileFragment_to_showProfileInfoFragment)
@@ -62,12 +63,13 @@ class ProfileFragment : Fragment() {
         editor.putString("savedNumberOfBankAccount",binding.numberOfBankAccounts.text.toString())
         editor.putString("savedPhone",binding.phone.text.toString())
         editor.apply()
+        vm.userNumberAccount = saveInfo.getString("savedNumberOfBankAccount",binding.numberOfBankAccounts.text.toString())?.toInt()
         Toast.makeText(context,"مشخصات شما ثبت شد.", Toast.LENGTH_SHORT).show()
 
 
     }
 
-    fun isfieldsFull():Boolean{
+    fun isFieldsFull():Boolean{
         if (  binding.fullName.text.isNullOrBlank()){
             binding.fullName.error = "این فیلد را پر کنید."
             return false

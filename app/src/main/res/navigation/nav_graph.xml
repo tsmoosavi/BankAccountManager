@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.bankaccountmanager.ProfileFragment"
+        android:name="com.example.bankaccountmanager.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -16,22 +16,22 @@
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.example.bankaccountmanager.CreateAccountFragment"
+        android:name="com.example.bankaccountmanager.view.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" />
     <fragment
         android:id="@+id/showAccountFragment"
-        android:name="com.example.bankaccountmanager.ShowAccountFragment"
+        android:name="com.example.bankaccountmanager.view.ShowAccountFragment"
         android:label="fragment_show_account"
         tools:layout="@layout/fragment_show_account" />
     <fragment
         android:id="@+id/selectAccountFragment"
-        android:name="com.example.bankaccountmanager.SelectAccountFragment"
+        android:name="com.example.bankaccountmanager.view.SelectAccountFragment"
         android:label="fragment_select_account"
         tools:layout="@layout/fragment_select_account" />
     <fragment
         android:id="@+id/showProfileInfoFragment"
-        android:name="com.example.bankaccountmanager.ShowProfileInfoFragment"
+        android:name="com.example.bankaccountmanager.view.ShowProfileInfoFragment"
         android:label="fragment_show_profile_info"
         tools:layout="@layout/fragment_show_profile_info" >
         <action

@@ -1,4 +1,4 @@
-package com.example.bankaccountmanager
+package com.example.bankaccountmanager.view
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.bankaccountmanager.R
 import com.example.bankaccountmanager.databinding.FragmentShowProfileInfoBinding
 
 

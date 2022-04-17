@@ -1,13 +1,12 @@
-package com.example.bankaccountmanager
+package com.example.bankaccountmanager.database
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 
 @Dao
 interface BankAccountDao {
     @Query ("SELECT * FROM BankAccount WHERE cardNumber = :userCardNumber ")
-    fun getBankAccountInfo(userCardNumber:Int):LiveData< BankAccount>
+    fun getBankAccountInfo(userCardNumber:Int):LiveData<BankAccount>
 
     @Query("SELECT * FROM BankAccount")
     fun getAll():LiveData<List<BankAccount>>
