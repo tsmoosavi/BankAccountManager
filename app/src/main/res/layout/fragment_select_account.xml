@@ -41,9 +41,10 @@
             android:text="Find account"
             android:layout_gravity="center"
             app:strokeWidth ="5dp"
-            app:strokeColor="@color/pink"
-            style="?attr/materialButtonOutlinedStyle"
-            />
+            app:strokeColor="#FFEB3B"
+            app:icon="@drawable/ic_search"
+            app:iconTint ="#FF5722"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon" />
 
         <TextView
             android:id="@+id/accountNumberTxv"
