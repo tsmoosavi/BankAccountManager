@@ -24,4 +24,7 @@ object Repository { //class
     fun delete(){
         db!!.bankAccountDao().delete()
     }
+    fun getAccountInfo(number:Int):BankAccount{
+       return db!!.bankAccountDao().getBankAccountInfo(number)
+    }
 }

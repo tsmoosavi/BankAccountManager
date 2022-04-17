@@ -13,7 +13,7 @@
     <string name="number_of_bank_accounts">Number of bank accounts</string>
     <string name="edit_information">Edit information</string>
     <string name="bankIntro">اطلاعات حساب بانکی خود را وارد کنید:</string>
-    <string name="cardNumber">شماره کارت:</string>
+    <string name="cardNumber">شماره کارت خود را وارد کنید:</string>
     <string name="balance">موجودی حساب:</string>
     <string name="yourBankInfo">اطلاعات حساب بانکی شما</string>
     <string name="next">next</string>

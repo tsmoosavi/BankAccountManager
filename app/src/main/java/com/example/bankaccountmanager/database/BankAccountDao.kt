@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface BankAccountDao {
     @Query ("SELECT * FROM BankAccount WHERE cardNumber = :userCardNumber ")
-    fun getBankAccountInfo(userCardNumber:Int):LiveData<BankAccount>
+    fun getBankAccountInfo(userCardNumber:Int):BankAccount
 
     @Query("SELECT * FROM BankAccount")
     fun getAll():LiveData<List<BankAccount>>

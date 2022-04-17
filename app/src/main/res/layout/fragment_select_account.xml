@@ -21,6 +21,20 @@
             android:background="@drawable/blue_outline"
             />
         <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/cardNumber"
+        android:background="@drawable/pink_outline"
+        style="@style/txvStyle"/>
+        <EditText
+            android:id="@+id/selectedCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_outline"/>
+
+        <TextView
             android:id="@+id/accountNumberTxv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,19 +44,6 @@
             style="@style/txvStyle"/>
         <TextView
             android:id="@+id/selectedAccountType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/blue_outline"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/cardNumber"
-            android:background="@drawable/pink_outline"
-            style="@style/txvStyle"/>
-        <TextView
-            android:id="@+id/selectedCardNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

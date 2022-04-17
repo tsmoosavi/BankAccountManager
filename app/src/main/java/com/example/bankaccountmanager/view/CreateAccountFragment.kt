@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.example.bankaccountmanager.R
 import com.example.bankaccountmanager.VM.CreateAccountVM
@@ -62,8 +63,14 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
         binding.registerButton.setOnClickListener{
            if ( checkFields()){
-               savaData()
-               vm.checkNumberOfAddAccounts()
+               if (vm.checkRepeat(binding.cardNumber.text.toString().toInt())){
+                   savaData()
+                   vm.checkNumberOfAddAccounts()
+               }
+               else{
+                   Toast.makeText(context, "این شماره کارت قبلا وارد شده است.", Toast.LENGTH_SHORT).show()
+               }
+            
            }
         }
     }
