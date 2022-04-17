@@ -46,19 +46,12 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
             spinner.adapter = adapter
 
         }
-//        vm.userNumberOfAccounts.observe(viewLifecycleOwner){number->
-//            binding.number1.text =number.toString()
-//        }
         vm.countOfAccounts.observe(viewLifecycleOwner){ number ->
             binding.number.text = number.toString()
         }
         vm.registerButtonEnable.observe(viewLifecycleOwner){ enable ->
             binding.registerButton.isEnabled = enable
         }
-//        var numberObserver = Observer<Int> {number ->
-//            binding.number.text = number.toString()
-//        }
-//        vm.countOfAccounts.observe(viewLifecycleOwner,numberObserver)
 
 
         binding.registerButton.setOnClickListener{
@@ -97,7 +90,6 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        var accountType :String= p0?.getItemAtPosition(p2).toString()
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

@@ -2,15 +2,23 @@ package com.example.bankaccountmanager.VM
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.bankaccountmanager.database.BankAccount
 import com.example.bankaccountmanager.database.Repository
 
 class ShowAccountVM (app: Application): AndroidViewModel(app){
 
-    val numberLiveData= MutableLiveData<Int>(0)
+    val numberLiveData= MutableLiveData<Int>(1)
+    var countAccountsNumberLD : LiveData<Int>
+    lateinit var bALD:MutableLiveData<BankAccount>
+    var nextEnableLD =MutableLiveData<Boolean>(true)
+    var backEnableLD =MutableLiveData<Boolean>(false)
     init {
         Repository.initDB(app.applicationContext)
+        bALD.value = Repository.getAccountByNumber(1)
+        countAccountsNumberLD = Repository.getListSize()
+
     }
     fun findAccount(cardNumber:Int):BankAccount{
        return Repository.getAccountInfo(cardNumber)
@@ -23,21 +31,27 @@ class ShowAccountVM (app: Application): AndroidViewModel(app){
         return true
     }
 
-//    val bankAccountLiveData = MutableLiveData<BankAccount>()
-//    var ListSize =(Repository.getListSize())
-
-
-//    fun next(){
-//        numberLiveData.value = numberLiveData.value?.plus(1)
-//        numberLiveData.value?.let { number ->
-//            bankAccountLiveData.value = accountList.value?.get(number)
-//        }
-//    }
-//    fun backClicked(){
-//        numberLiveData.value = numberLiveData.value?.minus(1)
-//        numberLiveData.value?.let{number->
-//            bankAccountLiveData.value =accountList.value?.get(number)
-//        }
-//    }
+    fun next(){
+        backEnableLD.value = true
+        numberLiveData.value = numberLiveData.value?.plus(1)
+        bALD.value = numberLiveData.value?.let { Repository.getAccountByNumber(it) }
+        numberLiveData.value?.let{number->
+            bALD.value = Repository.getAccountByNumber(number)
+        }
+        if (numberLiveData.value == countAccountsNumberLD.value){
+            nextEnableLD.value = false
+        }
+    }
+    fun back(){
+        nextEnableLD.value = true
+        numberLiveData.value = numberLiveData.value?.minus(1)
+        bALD.value = numberLiveData.value?.let { Repository.getAccountByNumber(it) }
+        numberLiveData.value?.let{number->
+            bALD.value = Repository.getAccountByNumber(number)
+        }
+        if (numberLiveData.value ==1){
+            backEnableLD.value = false
+        }
+    }
 
 }

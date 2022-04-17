@@ -27,4 +27,7 @@ object Repository { //class
     fun getAccountInfo(number:Int):BankAccount{
        return db!!.bankAccountDao().getBankAccountInfo(number)
     }
+    fun getAccountByNumber(id:Int):BankAccount{
+       return db!!.bankAccountDao().getOneBankAccount(id)
+    }
 }

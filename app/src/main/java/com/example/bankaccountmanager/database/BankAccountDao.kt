@@ -8,6 +8,9 @@ interface BankAccountDao {
     @Query ("SELECT * FROM BankAccount WHERE cardNumber = :userCardNumber ")
     fun getBankAccountInfo(userCardNumber:Int):BankAccount
 
+    @Query ("SELECT * FROM BankAccount WHERE number = :id ")
+    fun getOneBankAccount(id:Int):BankAccount
+
     @Query("SELECT * FROM BankAccount")
     fun getAll():LiveData<List<BankAccount>>
 
