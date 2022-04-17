@@ -37,6 +37,7 @@ class ProfileFragment : Fragment() {
         binding.register.setOnClickListener{
 
             if (isFieldsFull()){
+//                vm.userNumberOfAccounts = binding.numberOfBankAccounts.text.toString().toInt()
                 saveInfo()
                 Toast.makeText(context,"مشخصات شما ثبت شد.", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_profileFragment_to_showProfileInfoFragment)
@@ -63,7 +64,6 @@ class ProfileFragment : Fragment() {
         editor.putString("savedNumberOfBankAccount",binding.numberOfBankAccounts.text.toString())
         editor.putString("savedPhone",binding.phone.text.toString())
         editor.apply()
-        vm.userNumberOfAccounts = saveInfo.getString("savedNumberOfBankAccount", binding.numberOfBankAccounts.text.toString())!!.toInt()
         Toast.makeText(context,"مشخصات شما ثبت شد.", Toast.LENGTH_SHORT).show()
 
 

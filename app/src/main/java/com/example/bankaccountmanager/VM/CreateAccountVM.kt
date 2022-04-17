@@ -23,18 +23,14 @@ class CreateAccountVM(app: Application) : AndroidViewModel(app) {
     fun addAccount(bankInfo: BankAccount) {
         Repository.addAccount(bankInfo)
     }
-
-    //    fun getList(){
-//        Repository.getAccounts()
+//    fun checkNumberOfAddAccounts() {
+//        if (countOfAccounts.value == userNumberOfAccounts) {
+//            registerButtonEnable.value = false
+//        }
 //    }
-    fun checkNumberOfAddAccounts() {
-        if (countOfAccounts.value == userNumberOfAccounts) {
-            registerButtonEnable.value = false
-        }
-    }
 
     fun checkRepeat(cardNumber: Int): Boolean {
-        if (Repository.getAccountInfo(cardNumber).number == null) {
+        if (Repository.getAccountInfo(cardNumber) == null) {
             return false
         }
         return true

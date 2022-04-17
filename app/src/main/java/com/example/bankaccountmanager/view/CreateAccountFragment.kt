@@ -35,11 +35,8 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        var saveInfo : SharedPreferences = requireActivity().getSharedPreferences("personalInformation", Context.MODE_PRIVATE)
-//        var count = saveInfo.getString("savedNumberOfBankAccount",null)
-        binding.number1.text = vm.userNumberOfAccounts.toString()
         var spinner = binding.spinner
-
+//        binding.number1.text = vm.userNumberOfAccounts.toString()
         ArrayAdapter.createFromResource(
             requireContext(),
             R.array.accountType,
@@ -49,6 +46,9 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
             spinner.adapter = adapter
 
         }
+//        vm.userNumberOfAccounts.observe(viewLifecycleOwner){number->
+//            binding.number1.text =number.toString()
+//        }
         vm.countOfAccounts.observe(viewLifecycleOwner){ number ->
             binding.number.text = number.toString()
         }
@@ -64,11 +64,12 @@ class CreateAccountFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         binding.registerButton.setOnClickListener{
            if ( checkFields()){
                if (vm.checkRepeat(binding.cardNumber.text.toString().toInt())){
-                   savaData()
-                   vm.checkNumberOfAddAccounts()
+                   Toast.makeText(context, "این شماره کارت قبلا وارد شده است.", Toast.LENGTH_SHORT).show()
                }
                else{
-                   Toast.makeText(context, "این شماره کارت قبلا وارد شده است.", Toast.LENGTH_SHORT).show()
+                   savaData()
+//                   vm.checkNumberOfAddAccounts()
+                   Toast.makeText(context, "ثبت", Toast.LENGTH_SHORT).show()
                }
             
            }

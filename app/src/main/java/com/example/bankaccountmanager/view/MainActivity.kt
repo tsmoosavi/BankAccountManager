@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.example.bankaccountmanager.R
 import com.example.bankaccountmanager.VM.MainVM
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -59,18 +60,33 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
     fun deleteAccounts(activity: Activity) {
-        val builder: AlertDialog.Builder = activity.let {
-            AlertDialog.Builder(it)
-        }
-        builder
-            .setMessage("Are you sure about delete accounts?")
-            .setTitle("DELETE ?")
-            .setPositiveButton("Yes", DialogInterface.OnClickListener{ dialog, id->
-                Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
+
+        MaterialAlertDialogBuilder(activity)
+            .setTitle(resources.getString(R.string.title))
+            .setMessage(resources.getString(R.string.supporting_text))
+            .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
+            }
+            .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
+                Toast.makeText(this, "All accounts deleted", Toast.LENGTH_SHORT).show()
                 vm.delete()
-            })
-            .setNegativeButton("No",DialogInterface.OnClickListener{ dialog,id-> })
-            .setCancelable(false)
+            }
             .show()
+
+
+
+        //------------
+//        val builder: AlertDialog.Builder = activity.let {
+//            AlertDialog.Builder(it)
+//        }
+//        builder
+//            .setMessage("Are you sure about delete accounts?")
+//            .setTitle("DELETE ?")
+//            .setPositiveButton("Yes", DialogInterface.OnClickListener{ dialog, id->
+//                Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
+//                vm.delete()
+//            })
+//            .setNegativeButton("No",DialogInterface.OnClickListener{ dialog,id-> })
+//            .setCancelable(false)
+//            .show()
     }
 }

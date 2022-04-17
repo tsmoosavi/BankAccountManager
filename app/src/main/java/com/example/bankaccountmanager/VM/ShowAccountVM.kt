@@ -12,9 +12,19 @@ class ShowAccountVM (app: Application): AndroidViewModel(app){
     init {
         Repository.initDB(app.applicationContext)
     }
+    fun findAccount(cardNumber:Int):BankAccount{
+       return Repository.getAccountInfo(cardNumber)
+    }
 
-    val bankAccountLiveData = MutableLiveData<BankAccount>()
-    var ListSize =(Repository.getListSize())
+    fun checkRepeat(cardNumber: Int): Boolean {
+        if (Repository.getAccountInfo(cardNumber) == null) {
+            return false
+        }
+        return true
+    }
+
+//    val bankAccountLiveData = MutableLiveData<BankAccount>()
+//    var ListSize =(Repository.getListSize())
 
 
 //    fun next(){

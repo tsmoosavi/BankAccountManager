@@ -5,10 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import com.example.bankaccountmanager.BankDatabase
 import com.example.bankaccountmanager.R
+import com.example.bankaccountmanager.VM.ShowAccountVM
+import com.example.bankaccountmanager.database.BankAccount
+import com.example.bankaccountmanager.databinding.FragmentSelectAccountBinding
 
 class SelectAccountFragment : Fragment() {
-
+    lateinit var binding: FragmentSelectAccountBinding
+    val vm : ShowAccountVM by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,8 +24,26 @@ class SelectAccountFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_select_account, container, false)
+      binding = FragmentSelectAccountBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.findButton.setOnClickListener{
+            if(vm.checkRepeat(binding.selectedCardNumber.text.toString().toInt())){
+                findAccount(binding.selectedCardNumber.text.toString().toInt())
+
+            }else{
+                Toast.makeText(context, "چنین شماره کارتی وجود ندارد.", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
+    private fun findAccount(cardNumber:Int) {
+    var chosenAccount = vm.findAccount(cardNumber)
+        binding.selectedAccountType.text = chosenAccount.accountType
+        binding.selectedBalance.text = chosenAccount.balance.toString()
+    }
 }
