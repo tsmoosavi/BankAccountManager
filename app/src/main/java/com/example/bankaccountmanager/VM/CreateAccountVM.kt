@@ -11,7 +11,7 @@ import com.example.bankaccountmanager.database.Repository
 
 
 class CreateAccountVM(app: Application) : AndroidViewModel(app) {
-     var userNumberOfAccounts =0
+     var userNumberOfAccounts = 0
     var countOfAccounts: LiveData<Int>
     var registerButtonEnable = MutableLiveData<Boolean>(true)
 
@@ -23,11 +23,11 @@ class CreateAccountVM(app: Application) : AndroidViewModel(app) {
     fun addAccount(bankInfo: BankAccount) {
         Repository.addAccount(bankInfo)
     }
-//    fun checkNumberOfAddAccounts() {
-//        if (countOfAccounts.value == userNumberOfAccounts) {
-//            registerButtonEnable.value = false
-//        }
-//    }
+    fun checkNumberOfAddAccounts() {
+        if (countOfAccounts.value!! >= userNumberOfAccounts - 1) {
+            registerButtonEnable.value = false
+        }
+    }
 
     fun checkRepeat(cardNumber: Int): Boolean {
         if (Repository.getAccountInfo(cardNumber) == null) {

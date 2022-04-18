@@ -23,10 +23,10 @@ class ShowAccountVM (app: Application): AndroidViewModel(app){
     fun next(){
         backEnableLD.value = true
         numberLiveData.value = numberLiveData.value?.plus(1)
-//        bALD.value = numberLiveData.value?.let { Repository.getAccountByNumber(it) }
-        numberLiveData.value?.let{number->
-            bankAccountLD.value = Repository.getAccountByNumber(number)
-        }
+        bankAccountLD.value = numberLiveData.value?.let { Repository.getAccountByNumber(it) }
+//        numberLiveData.value?.let{number->
+//            bankAccountLD.value = Repository.getAccountByNumber(number)
+//        }
         if (numberLiveData.value == countAccountsNumberLD.value){
             nextEnableLD.value = false
         }
@@ -34,10 +34,10 @@ class ShowAccountVM (app: Application): AndroidViewModel(app){
     fun back(){
         nextEnableLD.value = true
         numberLiveData.value = numberLiveData.value?.minus(1)
-//        bALD.value = numberLiveData.value?.let { Repository.getAccountByNumber(it) }
-        numberLiveData.value?.let{number->
-            bankAccountLD.value = Repository.getAccountByNumber(number)
-        }
+        bankAccountLD.value = numberLiveData.value?.let { Repository.getAccountByNumber(it) }
+//        numberLiveData.value?.let{number->
+//            bankAccountLD.value = Repository.getAccountByNumber(number)
+//        }
         if (numberLiveData.value == 1){
             backEnableLD.value = false
         }
