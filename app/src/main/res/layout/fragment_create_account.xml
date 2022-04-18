@@ -47,7 +47,25 @@
 
 </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/number1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/pink"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userSelectedNumber"
+                android:textColor="@color/black"
+                android:layout_marginStart="30dp"/>
 
+        </LinearLayout>
         <TextView
             android:id="@+id/accountNumberTxv"
             android:layout_width="match_parent"
