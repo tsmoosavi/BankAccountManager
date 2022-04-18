@@ -38,7 +38,9 @@ class ShowAccountFragment : Fragment() {
         vm.numberLiveData.observe(viewLifecycleOwner){number ->
             binding.number.text = number.toString()
         }
-        vm.bALD.observe(viewLifecycleOwner){account ->
+        vm.countAccountsNumberLD.observe(viewLifecycleOwner){number ->
+        }
+        vm.bankAccountLD.observe(viewLifecycleOwner){ account ->
             binding.accountType.text = account.accountType
             binding.showCardNumber.text = account.cardNumber.toString()
             binding.showBalance.text = account.balance.toString()
